@@ -26,13 +26,13 @@ jQuery(document).ready(function($) {
     $("#rss-feeds").rss(
     
         //Change this to your own rss feeds
-        "http://feeds.feedburner.com/TechCrunch/startups",
+        " http://programmingincpp09.blogspot.in/feeds/posts/default?alt=rss",
         
         {
         // how many entries do you want?
         // default: 4
         // valid values: any integer
-        limit: 3,
+        limit: 2,
         
         // the effect, which is used to let the entries appear
         // default: 'show'
