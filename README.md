@@ -1,3 +1,3 @@
 Aditya-Chowdhry.github.io
 =========================  
-##www.adityachowdhry.me
+##https://aditya-chowdhry.github.io
