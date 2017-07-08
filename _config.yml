@@ -16,7 +16,7 @@ resume: true
 resume-external: true
 resume-url: https://google.com/?q=my+resume
 
-url: http://adityachowdhry.com/personal-website-jekyll
+url: http://adityachowdhry.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
