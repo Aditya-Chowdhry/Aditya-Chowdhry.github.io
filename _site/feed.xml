@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-03T00:04:37+05:30</updated><id>http://localhost:4000/</id><title type="html">Aditya Chowdhry</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Interview Tips And Suggestions</title><link href="http://localhost:4000/interview-tips-and-suggestions/" rel="alternate" type="text/html" title="Interview Tips And Suggestions" /><published>2016-02-24T22:48:00+05:30</published><updated>2016-02-24T22:48:00+05:30</updated><id>http://localhost:4000/interview-tips-and-suggestions</id><content type="html" xml:base="http://localhost:4000/interview-tips-and-suggestions/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-08T23:48:21+05:30</updated><id>http://localhost:4000/</id><title type="html">Aditya Chowdhry</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Interview Tips And Suggestions</title><link href="http://localhost:4000/interview-tips-and-suggestions/" rel="alternate" type="text/html" title="Interview Tips And Suggestions" /><published>2016-02-24T22:48:00+05:30</published><updated>2016-02-24T22:48:00+05:30</updated><id>http://localhost:4000/interview-tips-and-suggestions</id><content type="html" xml:base="http://localhost:4000/interview-tips-and-suggestions/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;The following tips and suggestions are combination of my experience and different sources. This post includes all the relevant material that can help you in landing job oppurtunities and acing them.&lt;/p&gt;
 
@@ -99,7 +99,37 @@ One of the best way to overcome this is giving many mock interviews. Mock interv
 
 &lt;h5 id=&quot;note-there-can-be-other-ways-to-crack-interviews-too-the-above-post-is-the-summary-of-me-and-my-friends-experiences&quot;&gt;Note: There can be other ways to crack interviews too. The above post is the summary of me and my friends experiences.&lt;/h5&gt;
 &lt;center&gt;Keep Coding ✌&lt;/center&gt;
-&lt;center&gt;All the best!!&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="interviews" /><category term="computerscience" /><category term="programming" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/job.jpg" /></entry><entry><title type="html">ParkEasy</title><link href="http://localhost:4000/park-easy/" rel="alternate" type="text/html" title="ParkEasy" /><published>2015-08-01T22:10:00+05:30</published><updated>2015-08-01T22:10:00+05:30</updated><id>http://localhost:4000/park-easy</id><content type="html" xml:base="http://localhost:4000/park-easy/">&lt;p&gt;&lt;img src=&quot;/assets/park-easy-screenshot.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;All the best!!&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="interviews" /><category term="computerscience" /><category term="programming" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/job.jpg" /></entry><entry><title type="html">Divide And Conquer</title><link href="http://localhost:4000/divide-and-conquer/" rel="alternate" type="text/html" title="Divide And Conquer" /><published>2016-02-21T17:00:00+05:30</published><updated>2016-02-21T17:00:00+05:30</updated><id>http://localhost:4000/divide-and-conquer</id><content type="html" xml:base="http://localhost:4000/divide-and-conquer/">&lt;!-- ![Screenshot](/assets/park-easy-screenshot.png)
+ --&gt;
+&lt;p&gt;In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;Divide&lt;/b&gt; the problem into a a number of subproblems that are smaller instances of same problem.
+
+&lt;b&gt;Conquer&lt;/b&gt; the subproblems by solving them recursively. If subproblems sizes are small enough, however, just solve the subproblems in a straightforward manner.
+
+&lt;b&gt;Combine&lt;/b&gt; the solutions to the subproblems into the solution for the original problem.
+&lt;/p&gt;
+&lt;p&gt;One of the famous sorting algorithm Merge Sort is based on divide and conquer paradigm.
+&lt;/p&gt;
+In this post I will focus on Merge Sort. The basic implementation of Merge Sort is :
+Digitization of parking system to solve current parking crisis in India by providing facilities such as live parking status, variable rates, pre-booking feature and cashless payments. Working example - [Demo](http://vast-wave-6400.herokuapp.com)
+
+---
+
+What has inside?
+
+- Gulp
+- BrowserSync
+- Stylus
+- SVG
+- Travis
+- No JS
+- [98/100](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsergiokopplin.github.io%2Findigo%2F)
+
+---
+
+[Check it out](http://sergiokopplin.github.io/indigo/) here.
+If you need some help, just [tell me](http://github.com/sergiokopplin/indigo/issues).</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="algorithms" /><category term="datastructures" /><category term="competitivecoding" /><summary type="html">In divide and conquer we solve a problem recursively, applying three steps at each level of recursion: Divide the problem into a a number of subproblems that are smaller instances of same problem.</summary></entry><entry><title type="html">ParkEasy</title><link href="http://localhost:4000/park-easy/" rel="alternate" type="text/html" title="ParkEasy" /><published>2015-08-01T22:10:00+05:30</published><updated>2015-08-01T22:10:00+05:30</updated><id>http://localhost:4000/park-easy</id><content type="html" xml:base="http://localhost:4000/park-easy/">&lt;p&gt;&lt;img src=&quot;/assets/park-easy-screenshot.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Digitization of parking system to solve current parking crisis in India by providing facilities such as live parking status, variable rates, pre-booking feature and cashless payments. Working example - &lt;a href=&quot;http://vast-wave-6400.herokuapp.com&quot;&gt;Demo&lt;/a&gt;&lt;/p&gt;
 

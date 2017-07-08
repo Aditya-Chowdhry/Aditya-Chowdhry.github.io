@@ -1,0 +1,52 @@
+---
+title: "Divide And Conquer"
+layout: post
+date: 2016-02-21 17:00
+tag:
+- programming
+- algorithms
+- datastructures
+- competitivecoding
+
+image: #https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
+headerImage: true
+projects: true
+hidden: false # don't count this post in blog pagination
+description: "How can divide and conquer approach can be applied to different coding problems?"
+jemoji: ""
+category: blog
+author: adityachowdhry
+externalLink: false
+---
+
+<!-- ![Screenshot](/assets/park-easy-screenshot.png)
+ -->
+<p>In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:</p>
+<p>
+<b>Divide</b> the problem into a a number of subproblems that are smaller instances of same problem.
+
+<b>Conquer</b> the subproblems by solving them recursively. If subproblems sizes are small enough, however, just solve the subproblems in a straightforward manner.
+
+<b>Combine</b> the solutions to the subproblems into the solution for the original problem.
+</p>
+<p>One of the famous sorting algorithm Merge Sort is based on divide and conquer paradigm.
+</p>
+In this post I will focus on Merge Sort. The basic implementation of Merge Sort is :
+Digitization of parking system to solve current parking crisis in India by providing facilities such as live parking status, variable rates, pre-booking feature and cashless payments. Working example - [Demo](http://vast-wave-6400.herokuapp.com)
+
+---
+
+What has inside?
+
+- Gulp
+- BrowserSync
+- Stylus
+- SVG
+- Travis
+- No JS
+- [98/100](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsergiokopplin.github.io%2Findigo%2F)
+
+---
+
+[Check it out](http://sergiokopplin.github.io/indigo/) here.
+If you need some help, just [tell me](http://github.com/sergiokopplin/indigo/issues).
