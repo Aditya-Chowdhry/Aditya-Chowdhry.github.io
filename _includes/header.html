@@ -6,6 +6,17 @@
 
 {% if showHeader == true %}
     <header class="header-home {% if site.animation %}animated{% endif %}">
+        <meta name="description" content="Page description. No longer than 155 characters." />
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" value="summary">
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="{{ site.name }}" />
+        <meta property="og:type" content="personal_website" />
+        <meta property="og:url" content="http://adityachowdhry.com/" />
+        <meta property="og:image" content="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
+        <meta property="og:description" content="{{ site.bio }}" />
         {% if site.about %}
             <a class="link" href="{{ site.url }}/about">
                 <img class="selfie" alt="{{ site.name }}" src="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
