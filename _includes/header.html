@@ -6,17 +6,16 @@
 
 {% if showHeader == true %}
     <header class="header-home {% if site.animation %}animated{% endif %}">
-        <meta name="description" content="{{ site.bio }}" />
+        <meta name="description" content="About me, Blog and projects" />
 
         <!-- Twitter Card data -->
-        <meta name="twitter:card" value="{{ site.bio }}">
+        <meta name="twitter:card" value="About me, Blog and projects">
 
         <!-- Open Graph data -->
-        <meta property="og:title" content="{{ site.name }}" />
+        <meta property="og:title" content="Aditya Chowdhry" />
         <meta property="og:type" content="personal" />
-        <meta property="og:url" content="http://adityachowdhry.com/" />
-        <meta property="og:image" content="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
-        <meta property="og:description" content="{{ site.bio }}" />
+        <meta property="og:image" content="http://adityachowdhry.com/assets/images/profile.jpg" />
+        <meta property="og:description" content="About me, Blog and projects" />
         {% if site.about %}
             <a class="link" href="{{ site.url }}/about">
                 <img class="selfie" alt="{{ site.name }}" src="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
