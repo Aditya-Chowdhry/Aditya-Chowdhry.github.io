@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-02T20:35:22+05:30</updated><id>http://localhost:4000/</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Interview Tips And Suggestions</title><link href="http://localhost:4000/interview-tips-and-suggestions/" rel="alternate" type="text/html" title="Interview Tips And Suggestions" /><published>2016-02-24T22:48:00+05:30</published><updated>2016-02-24T22:48:00+05:30</updated><id>http://localhost:4000/interview-tips-and-suggestions</id><content type="html" xml:base="http://localhost:4000/interview-tips-and-suggestions/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-02T20:50:49+05:30</updated><id>http://localhost:4000/</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Interview Tips And Suggestions</title><link href="http://localhost:4000/interview-tips-and-suggestions/" rel="alternate" type="text/html" title="Interview Tips And Suggestions" /><published>2016-02-24T22:48:00+05:30</published><updated>2016-02-24T22:48:00+05:30</updated><id>http://localhost:4000/interview-tips-and-suggestions</id><content type="html" xml:base="http://localhost:4000/interview-tips-and-suggestions/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;The following tips and suggestions are combination of my experience and different sources. This post includes all the relevant material that can help you in landing job oppurtunities and acing them.&lt;/p&gt;
 
@@ -99,7 +99,109 @@ One of the best way to overcome this is giving many mock interviews. Mock interv
 
 &lt;h5 id=&quot;note-there-can-be-other-ways-to-crack-interviews-too-the-above-post-is-the-summary-of-me-and-my-friends-experiences&quot;&gt;Note: There can be other ways to crack interviews too. The above post is the summary of me and my friends experiences.&lt;/h5&gt;
 &lt;center&gt;Keep Coding ✌&lt;/center&gt;
-&lt;center&gt;All the best!!&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="interviews" /><category term="computerscience" /><category term="programming" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/job.jpg" /></entry><entry><title type="html">Divide And Conquer</title><link href="http://localhost:4000/divide-and-conquer/" rel="alternate" type="text/html" title="Divide And Conquer" /><published>2016-02-21T17:00:00+05:30</published><updated>2016-02-21T17:00:00+05:30</updated><id>http://localhost:4000/divide-and-conquer</id><content type="html" xml:base="http://localhost:4000/divide-and-conquer/">&lt;!-- ![Screenshot](/assets/park-easy-screenshot.png)
+&lt;center&gt;All the best!!&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="interviews" /><category term="computerscience" /><category term="programming" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/job.jpg" /></entry><entry><title type="html">1 Hack Per Month(2016)</title><link href="http://localhost:4000/1-hack-per-month/" rel="alternate" type="text/html" title="1 Hack Per Month(2016)" /><published>2016-01-11T22:00:00+05:30</published><updated>2016-01-11T22:00:00+05:30</updated><id>http://localhost:4000/1-hack-per-month</id><content type="html" xml:base="http://localhost:4000/1-hack-per-month/">&lt;p&gt;This is a list of my hacks to improve productivity and coding skills. Code everyday and make something useful.&lt;/p&gt;
+
+&lt;h2 id=&quot;january&quot;&gt;January&lt;/h2&gt;
+&lt;p&gt;File Organizer  - No more messy folders!&lt;/p&gt;
+
+&lt;p&gt;A basic hack to organize files in a folder. Categorizes different files in corresponding folders.&lt;br /&gt;
+Github: &lt;a href=&quot;https://github.com/Aditya-Chowdhry/file_organizer&quot;&gt;File organizer - Github&lt;/a&gt;&lt;br /&gt;
+Working: &lt;img src=&quot;https://camo.githubusercontent.com/9f167614ae4db0e54a68071b500ba3f78988dbc2/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f78543737593548644658574c6e77674238732f67697068792e676966&quot; alt=&quot;GIF&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;february&quot;&gt;February&lt;/h2&gt;
+&lt;p&gt;Email Sender  - &lt;a href=&quot;https://github.com/Aditya-Chowdhry/send_mails&quot;&gt;Send Emails-Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Being an event organizer I needed to send emails to a list of students. Made a script to do the same.&lt;br /&gt;
+Working: &lt;img src=&quot;https://camo.githubusercontent.com/cd68425155dbb3cd37c070607370340b8657bc8c/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f6c344b69614b6b575651395432544259732f67697068792e676966&quot; alt=&quot;GIF&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;march&quot;&gt;March&lt;/h2&gt;
+&lt;p&gt;Contribution to an Open source project &lt;a href=&quot;https://github.com/collectiveidea/unicode_math&quot;&gt;collectiveidea/unicode_math&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Fun Ruby extensions for doing math with Unicode&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fractions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can use many fractions as literals:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;⅞&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;530&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;½⅖&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;⅙&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;sdasd&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Roots&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can use square root, cube root, and fourth root:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;√&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∛&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∜&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;81&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Trigonometry&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s a sine wave unicode character, so we can calculate sine of a number:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;∿&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;π&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Constants&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Easily use unicode:costants&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;πτ∞&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And have fun with them:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∞&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∞&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;∞&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And many more!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;april&quot;&gt;April&lt;/h2&gt;
+&lt;p&gt;SafeHouse - &lt;a href=&quot;https://github.com/shubh3794/SafeHouse&quot;&gt;SafeHouse-Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Developed an application “SafeHouse” for Disaster Management in a 24-hour hackathon.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Project description:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the light of recent events in Nepal, Paris, Maharashtra, Pakistan etc it became clear we lack proper disaster management system.&lt;/p&gt;
+
+&lt;p&gt;Had it been otherwise, a lot of lives could have been saved. With this project we aim to provide the required knowledge and the means to the victims and organisations like NGO’s at the time of peril.&lt;/p&gt;
+
+&lt;p&gt;User reports a disaster Based on reported disaster’s location and type, push notification will be given to all the users near that area. Depending on how manyusers were notified and how many were in trouble, we prioritize the disaster by Geometric mean. All the information is being communicated in real time, As soon as disaster is reported. An unauthorized, unauthenticated user can easily get help because we know data plans are expensive and everyone does not have a smart phone, so just send an SMS at 09243422233 with your place name only eg. Delhi.&lt;/p&gt;
+
+&lt;p&gt;Distance based show of results on map with call option on your phone. No downloads, no browsing required.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/safehouse.webp&quot; alt=&quot;Project Screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may&quot;&gt;May&lt;/h2&gt;
+
+&lt;p&gt;~~ Exam Time ~~~&lt;/p&gt;
+
+&lt;h2 id=&quot;june&quot;&gt;June&lt;/h2&gt;
+&lt;p&gt;My first job&lt;/p&gt;
+
+&lt;p&gt;Joined UrbanClap as a Software Engineer. Setting up mac and some bash profile hacks!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/urbanclap_mac.jpg&quot; alt=&quot;UrbanClap&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Setting up some coding environment!  (Will write a detailed blog on it soon)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;iTerm&lt;/li&gt;
+  &lt;li&gt;Terminal theme - &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;Oh My Zsh&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Zsh Profile profile changes&lt;/li&gt;
+  &lt;li&gt;Auto completion&lt;/li&gt;
+  &lt;li&gt;Editors&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;&lt;img src=&quot;/assets/terminal.png&quot; alt=&quot;TerminalHacks&quot; /&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;center&gt;
+Will update the future hacks soon! Office time!
+&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="hack" /><category term="productivity" /><summary type="html">This is a list of my hacks to improve productivity and coding skills. Code everyday and make something useful.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/bulb.jpeg" /></entry><entry><title type="html">Divide And Conquer</title><link href="http://localhost:4000/divide-and-conquer/" rel="alternate" type="text/html" title="Divide And Conquer" /><published>2016-01-06T17:00:00+05:30</published><updated>2016-01-06T17:00:00+05:30</updated><id>http://localhost:4000/divide-and-conquer</id><content type="html" xml:base="http://localhost:4000/divide-and-conquer/">&lt;!-- ![Screenshot](/assets/park-easy-screenshot.png)
  --&gt;
 &lt;p&gt;In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:&lt;/p&gt;
 
@@ -271,105 +373,7 @@ The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2,
 
 &lt;p&gt;This blog explains this thoroughly: &lt;a href=&quot;http://52.20.106.37/count-of-range-sum/&quot;&gt;Count of Range Sum&lt;/a&gt;&lt;/p&gt;
 
-&lt;center&gt;Suggestions/Links are welcome.&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="algorithms" /><category term="datastructures" /><category term="competitivecoding" /><summary type="html">In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:</summary></entry><entry><title type="html">1 Hack Per Month(2016)</title><link href="http://localhost:4000/1-hack-per-month/" rel="alternate" type="text/html" title="1 Hack Per Month(2016)" /><published>2016-01-11T22:00:00+05:30</published><updated>2016-01-11T22:00:00+05:30</updated><id>http://localhost:4000/1-hack-per-month</id><content type="html" xml:base="http://localhost:4000/1-hack-per-month/">&lt;p&gt;This is a list of hacks to improve productivity and coding skills. Code everyday and make something useful.&lt;/p&gt;
-
-&lt;h2 id=&quot;january&quot;&gt;January&lt;/h2&gt;
-&lt;p&gt;File Organizer  - No more messy folders!&lt;/p&gt;
-
-&lt;p&gt;A basic hack to organize files in a folder. Categorizes different files in corresponding folders.&lt;br /&gt;
-Github: &lt;a href=&quot;https://github.com/Aditya-Chowdhry/file_organizer&quot;&gt;File organizer - Github&lt;/a&gt;&lt;br /&gt;
-Working: &lt;img src=&quot;https://camo.githubusercontent.com/9f167614ae4db0e54a68071b500ba3f78988dbc2/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f78543737593548644658574c6e77674238732f67697068792e676966&quot; alt=&quot;GIF&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;february&quot;&gt;February&lt;/h2&gt;
-&lt;p&gt;Email Sender  - &lt;a href=&quot;https://github.com/Aditya-Chowdhry/send_mails&quot;&gt;Send Emails-Github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Being an event organizer I needed to send emails to a list of students. Made a script to do the same.&lt;br /&gt;
-Working: &lt;img src=&quot;https://camo.githubusercontent.com/cd68425155dbb3cd37c070607370340b8657bc8c/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f6c344b69614b6b575651395432544259732f67697068792e676966&quot; alt=&quot;GIF&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;march&quot;&gt;March&lt;/h2&gt;
-&lt;p&gt;Contribution to an Open source project &lt;a href=&quot;https://github.com/collectiveidea/unicode_math&quot;&gt;collectiveidea/unicode_math&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Fun Ruby extensions for doing math with Unicode&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fractions&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You can use many fractions as literals:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;⅞&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;530&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;½⅖&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;⅙&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;sdasd&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Roots&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You can use square root, cube root, and fourth root:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;√&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∛&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∜&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;81&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Trigonometry&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;There’s a sine wave unicode character, so we can calculate sine of a number:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;∿&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;π&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Constants&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Easily use unicode:costants&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;err&quot;&gt;πτ∞&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;And have fun with them:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∞&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;∞&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;∞&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;And many more!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;april&quot;&gt;April&lt;/h2&gt;
-&lt;p&gt;SafeHouse - &lt;a href=&quot;https://github.com/shubh3794/SafeHouse&quot;&gt;SafeHouse-Github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Developed an application “SafeHouse” for Disaster Management in a 24-hour hackathon.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Project description:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In the light of recent events in Nepal, Paris, Maharashtra, Pakistan etc it became clear we lack proper disaster management system.&lt;/p&gt;
-
-&lt;p&gt;Had it been otherwise, a lot of lives could have been saved. With this project we aim to provide the required knowledge and the means to the victims and organisations like NGO’s at the time of peril.&lt;/p&gt;
-
-&lt;p&gt;User reports a disaster Based on reported disaster’s location and type, push notification will be given to all the users near that area. Depending on how manyusers were notified and how many were in trouble, we prioritize the disaster by Geometric mean. All the information is being communicated in real time, As soon as disaster is reported. An unauthorized, unauthenticated user can easily get help because we know data plans are expensive and everyone does not have a smart phone, so just send an SMS at 09243422233 with your place name only eg. Delhi.&lt;/p&gt;
-
-&lt;p&gt;Distance based show of results on map with call option on your phone. No downloads, no browsing required.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/safehouse.webp&quot; alt=&quot;Project Screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;may&quot;&gt;May&lt;/h2&gt;
-
-&lt;p&gt;~~ Exam Time ~~~&lt;/p&gt;
-
-&lt;h2 id=&quot;june&quot;&gt;June&lt;/h2&gt;
-&lt;p&gt;My first job&lt;/p&gt;
-
-&lt;p&gt;Joined UrbanClap as a Software Engineer. Setting up mac and some bash profile hacks!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/urbanclap_mac.jpg&quot; alt=&quot;UrbanClap&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Setting up some coding environment!&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Terminal theme - &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;Oh My Zsh&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Zsh Profile profile changes&lt;/li&gt;
-  &lt;li&gt;Auto completion&lt;/li&gt;
-  &lt;li&gt;Editors
-(Will write a detailed blog on it soon)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/terminal.jpg&quot; alt=&quot;TerminalHacks&quot; /&gt;&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="hack" /><category term="productivity" /><summary type="html">This is a list of hacks to improve productivity and coding skills. Code everyday and make something useful.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/bulb.jpeg" /></entry><entry><title type="html">ParkEasy</title><link href="http://localhost:4000/park-easy/" rel="alternate" type="text/html" title="ParkEasy" /><published>2015-08-01T22:10:00+05:30</published><updated>2015-08-01T22:10:00+05:30</updated><id>http://localhost:4000/park-easy</id><content type="html" xml:base="http://localhost:4000/park-easy/">&lt;p&gt;&lt;img src=&quot;/assets/park-easy-screenshot.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;Suggestions/Links are welcome.&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="algorithms" /><category term="datastructures" /><category term="competitivecoding" /><summary type="html">In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:</summary></entry><entry><title type="html">ParkEasy</title><link href="http://localhost:4000/park-easy/" rel="alternate" type="text/html" title="ParkEasy" /><published>2015-08-01T22:10:00+05:30</published><updated>2015-08-01T22:10:00+05:30</updated><id>http://localhost:4000/park-easy</id><content type="html" xml:base="http://localhost:4000/park-easy/">&lt;p&gt;&lt;img src=&quot;/assets/park-easy-screenshot.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Digitization of parking system to solve current parking crisis in India by providing facilities such as live parking status, variable rates, pre-booking feature and cashless payments. Working example - &lt;a href=&quot;http://vast-wave-6400.herokuapp.com&quot;&gt;Demo&lt;/a&gt;&lt;/p&gt;
 

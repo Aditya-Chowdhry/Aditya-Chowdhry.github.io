@@ -1,7 +1,7 @@
 ---
 title: "Divide And Conquer"
 layout: post
-date: 2016-02-21 17:00
+date: 2016-01-06 17:00
 tag:
 - programming
 - algorithms

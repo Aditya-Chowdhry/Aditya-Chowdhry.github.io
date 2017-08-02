@@ -18,7 +18,7 @@ author: adityachowdhry
 externalLink: false
 ---
 
-This is a list of hacks to improve productivity and coding skills. Code everyday and make something useful.
+This is a list of my hacks to improve productivity and coding skills. Code everyday and make something useful.
 
 ## January
 File Organizer  - No more messy folders! 
@@ -111,12 +111,17 @@ Joined UrbanClap as a Software Engineer. Setting up mac and some bash profile ha
 
 ![UrbanClap](/assets/urbanclap_mac.jpg)
 
-Setting up some coding environment! 
+Setting up some coding environment!  (Will write a detailed blog on it soon)
 
+- iTerm
 - Terminal theme - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
 - Zsh Profile profile changes 
 - Auto completion
 - Editors
-(Will write a detailed blog on it soon)
 
-![TerminalHacks](/assets/terminal.jpg)
+![TerminalHacks](/assets/terminal.png)
+---
+---
+<center>
+Will update the future hacks soon! Office time!
+</center>
