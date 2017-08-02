@@ -5,7 +5,7 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <center><h2>Hey there!</h2></center>
-<p>I am <b>Aditya Chowdhry</b>, currently working as a Software Engineer at UrbanClap. My main interest lies in developing scalable backends. I am 1+ year into my first job out of college and have been working on NodeJS, MongoDb, Python and MySQL majorly. I have worked on various projects like Chat(using Ejabberd), SEO(backend infrastructure), Customer Product Flow and MatchMaking at UrbanClap.
+<p>I am <b>Aditya Chowdhry</b>, currently working as a Software Engineer at UrbanClap. My main interest lies in developing scalable backends. I am 1+ year into my first job out of college and have been working on NodeJS, MongoDb, Redis and Python majorly. I have worked on various projects like Chat(using Ejabberd), SEO(backend infrastructure), Customer Product Flow and MatchMaking at UrbanClap.
 </p>
 <p>How we build chat at UrbanClap: </p>
 <center>
