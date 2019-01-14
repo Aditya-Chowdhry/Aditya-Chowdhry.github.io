@@ -5,34 +5,39 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <center><h2>Hey there!</h2></center>
-<p>I am <b>Aditya Chowdhry</b>, currently working as a Software Engineer at UrbanClap. My main interest lies in developing scalable backends. I am 1+ year into my first job out of college and have been working on NodeJS, MongoDb, Redis and Python majorly. I have worked on various projects like Chat(using Ejabberd), SEO(backend infrastructure), Customer Product Flow and MatchMaking at UrbanClap.
+<p>I am <b>Aditya Chowdhry</b>, currently working as a Product Engineer at <a href="https://www.gojek.io/" target="_blank">Go-Jek</a> and exploring a world of distributed systems.</p>
+<br>
+<h3>[2018 - current] Product Engineer at <a href="https://www.gojek.io/" target="_blank">Go-Jek</a> </h3>
+<img class="smaller-image" src="{{site.url}}/assets/gojek_logo.png" alt="Go-jek">
+<br>
+<h3>[2016 - 2018] Software Engineer at <a href="https://www.urbanclap.com/" target="_blank">UrbanClap</a> </h3>
+<img class="image" src="{{site.url}}/assets/uc_logo.png" alt="UrbanClap">
+<p style="margin-left: 40px">
+   At UrbanClap I worked across various projects like Chat(using Ejabberd), SEO(backend infrastructure), Customer Product Flow and MatchMaking.<br><br>
+   How we build chat at UrbanClap:
 </p>
-<p>How we build chat at UrbanClap: </p>
-<center>
-	<img class="image" src="{{site.url}}/assets/chat_team.jpg" alt="chatTeam">
-    <figcaption class="caption">Chat Team</figcaption>
-    <p> Medium article: <a href="https://medium.com/urbanclap-engineering/power-of-in-house-chat-d05601b01e48" target="_blank">[Power of in-house chat]</a>
-    </p>
-</center>
-<!-- ![Chat Team](/assets/chat_team.jpg) -->
-<p>I have worked on various languages and technologies such as:</p>
-
-<!-- <h2>Skills</h2> -->
-
-<ul class="skill-list">
-	<li>NodeJS</li>
-	<li>MongoDb</li>
-	<li>Python</li>
-	<li>MySQL</li>
-	<li>Git</li>
-	<li>Redis</li>
-	<li>AWS Kinesis - AWS Lambda</li>
-	<li>Ejabberd</li>
-	<li>Ruby on Rails</li>
-	<li>Shell scripting</li>
-	<li>C++</li>
-	<li>JAVA</li>
-</ul>
+   <center>
+        <img class="image" src="{{site.url}}/assets/chat_team.jpg" alt="chatTeam">
+        <figcaption class="caption">Chat Team</figcaption><br>
+        Medium article: <a href="https://medium.com/urbanclap-engineering/power-of-in-house-chat-d05601b01e48" target="_blank">[Power of in-house chat]</a>
+    </center>
+<p style="margin-left: 40px">
+    I have worked on various languages and technologies such as:
+    <ul style="margin-left: 40px" class="skill-list">
+	    <li>NodeJS</li>
+	    <li>MongoDb</li>
+	    <li>Python</li>
+	    <li>MySQL</li>
+	    <li>Git</li>
+	    <li>Redis</li>
+	    <li>AWS Kinesis - AWS Lambda - AWS ECS</li>
+	    <li>Ejabberd</li>
+	    <li>Ruby on Rails</li>
+	    <li>Shell scripting</li>
+	    <li>C++</li>
+	    <li>JAVA</li>
+    </ul>
+</p>
 
 <p>During my college time, I have been an active participant in Coding competitions and Hackathons.</p>
 
