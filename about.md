@@ -8,10 +8,10 @@ layout: page
 <p>I am <b>Aditya Chowdhry</b>, currently working as a Product Engineer at <a href="https://www.gojek.io/" target="_blank">Go-Jek</a> and exploring a world of distributed systems.</p>
 <br>
 <h3>[2018 - current] Product Engineer at <a href="https://www.gojek.io/" target="_blank">Go-Jek</a> </h3>
-<img class="smaller-image" src="{{site.url}}/assets/gojek_logo.png" alt="Go-jek">
+<!--img class="smaller-image" src="{{site.url}}/assets/gojek_logo.png" alt="Go-jek"-->
 <br>
 <h3>[2016 - 2018] Software Engineer at <a href="https://www.urbanclap.com/" target="_blank">UrbanClap</a> </h3>
-<img class="image" src="{{site.url}}/assets/uc_logo.png" alt="UrbanClap">
+<!--img class="image" src="{{site.url}}/assets/uc_logo.png" alt="UrbanClap"-->
 <p style="margin-left: 40px">
    At UrbanClap I worked across various projects like Chat(using Ejabberd), SEO(backend infrastructure), Customer Product Flow and MatchMaking.<br><br>
    How we build chat at UrbanClap:
