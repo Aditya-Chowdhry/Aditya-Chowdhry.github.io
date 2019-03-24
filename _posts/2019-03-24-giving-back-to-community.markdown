@@ -18,7 +18,7 @@ externalLink: false
 ---
 
 
-This is for students/professionals who are looking to make a career in programming/computer-science/software-development but have questions like - 
+This is for students/professionals who are looking to make a career in programming/computer-science/software-development and have questions like - 
 
 - How to start?
 - What fields can I get into? 
@@ -29,7 +29,7 @@ This is for students/professionals who are looking to make a career in programmi
 ..etc Or any other questions.
 
 ## Why I am doing this?
-In India, lakhs of engineers graduate everywhere and only a handful of engineers secure a good engineering job. <https://economictimes.indiatimes.com/jobs/only-6-of-those-passing-out-of-indias-engineering-colleges-are-fit-for-a-job/articleshow/64446292.cms>
+In India, lakhs of engineers graduate everyear and only a handful of engineers secure a good engineering job. <https://economictimes.indiatimes.com/jobs/only-6-of-those-passing-out-of-indias-engineering-colleges-are-fit-for-a-job/articleshow/64446292.cms>
 
 I can't change the above completely but I want to focus on those who are genuinely interested in making a career in this field but lack good mentorship and connect with the current industry. 
 
