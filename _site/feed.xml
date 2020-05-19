@@ -1,4 +1,170 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-15T00:53:00+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Journey of Redis At UrbanClap</title><link href="http://localhost:4000/journey-of-redis-at-urbanclap/" rel="alternate" type="text/html" title="Journey of Redis At UrbanClap" /><published>2018-09-01T16:00:00+05:30</published><updated>2018-09-01T16:00:00+05:30</updated><id>http://localhost:4000/journey-of-redis-at-urbanclap</id><content type="html" xml:base="http://localhost:4000/journey-of-redis-at-urbanclap/">&lt;h3 id=&quot;description&quot;&gt;Description&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-19T21:25:09+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Key Learnings - Maintaining Cloud Infrastructure</title><link href="http://localhost:4000/key-learnings/" rel="alternate" type="text/html" title="Key Learnings - Maintaining Cloud Infrastructure" /><published>2019-10-16T10:00:00+05:30</published><updated>2019-10-16T10:00:00+05:30</updated><id>http://localhost:4000/key-learnings</id><content type="html" xml:base="http://localhost:4000/key-learnings/">&lt;p&gt;Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.&lt;/p&gt;
+
+&lt;p&gt;Initial stage startups have the pressure to ship out product and new features ASAP which in turns affect the overall tech quality. Contrary to this aggressive focus on quality, may affect your startups business.&lt;/p&gt;
+
+&lt;p&gt;As your startup grows, the tech also evolves accordingly. There are continuous refactoring that keeps on happening along the journey which cannot be avoided as it is necessary for tech to adapt to the changes your startup is going through.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Premature optimisations can do more harm than good ex. breaking a monolith into microservices.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;These changes are bound to happen and usually take a lot of time and effort. There is always some uncertainty and lack of confidence around this process. This post brings out some of the key learnings that can help in reducing time-effort and increase confidence around refactoring from the perspective of the infrastructure side of things.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;These are some of my key learnings&lt;/p&gt;
+
+&lt;h4 id=&quot;1-convention-over-configuration&quot;&gt;1. Convention over configuration&lt;/h4&gt;
+
+&lt;p&gt;Have a convention when you name your resources. Here a resource can be anything like projects, cloud instances, DNS, databases or anything.&lt;/p&gt;
+
+&lt;p&gt;This applies consistent naming throughout your infrastructure which allows to programmatically perform actions and ease management.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-metadata&quot;&gt;2. Metadata&lt;/h4&gt;
+
+&lt;p&gt;Whenever you provision something new, make a habit to add some metadata to it. This can also be automated but you can initially make a habit of adding it manually.&lt;/p&gt;
+
+&lt;p&gt;Cloud providers (AWS/GCP/Azure etc) give facility of tags that you can apply to different resources. &lt;em&gt;Example -  creating a Redis? Metadata can be: type: Redis, version: 5.0.3, team: ABC&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This comes in handy when you need to identify or categorise your resources.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;How many Redis are running for my team?
+How many databases are we using?
+What versions of Postgres are we using in production?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Queries like these can be easily answered when we have the metadata.&lt;/p&gt;
+
+&lt;h4 id=&quot;3-inventory&quot;&gt;3. Inventory&lt;/h4&gt;
+
+&lt;p&gt;Store data of all things that are running, this helps in auditing and forms the basis of dependency matrix which can easily become complex as the company scale. This somehow depends on the previous point as well.&lt;/p&gt;
+
+&lt;h4 id=&quot;4-networking&quot;&gt;4. Networking&lt;/h4&gt;
+
+&lt;p&gt;Network design is important and one should follow the basic hygiene and precautions when designing the networking of your infra. It can be as simple as&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Separation of public-private subnets&lt;/li&gt;
+  &lt;li&gt;Separation of dev environments&lt;/li&gt;
+  &lt;li&gt;Assigning access, opening ports, whitelisting IPs — There should be some form of tracking on this as well. It can become really messy in no time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Networking can become a big pain and hindrance to growth if not done cautiously. Complexity increases with an increase in the number of engineers and scale.&lt;/p&gt;
+
+&lt;h4 id=&quot;5-deployment&quot;&gt;5. Deployment&lt;/h4&gt;
+
+&lt;p&gt;Deployment is something that is used very extensively throughout the journey of any tech company. One-click deployment and rollback are the two features that in my opinion should be present as soon as possible.&lt;/p&gt;
+
+&lt;p&gt;This helps in minimizing errors and downtime along with increasing efficiency and velocity of developers.&lt;/p&gt;
+
+&lt;h4 id=&quot;6-structured-logging&quot;&gt;6. Structured Logging&lt;/h4&gt;
+
+&lt;p&gt;Logging plays a very important role and is used for different purposes like discovering errors, deriving metrics or tracking the health of the system. In the early stages, many engineers don’t pay attention to what and how the data is getting logged. A good logging platform enables confidence in developers to refactor things.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;What to log&lt;/em&gt;&lt;/strong&gt; — Trackable and useful things should only be logged. Useful is subjective and depends on your use case. Just main catch is too much noise defeats the purpose of logging.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Format of log&lt;/em&gt;&lt;/strong&gt; — Be consistent with the formatting of logs. This can help in collating metrics and track things easily.&lt;/p&gt;
+
+&lt;h4 id=&quot;7-monitoring-metrics-and-alerts&quot;&gt;7. Monitoring, metrics and alerts&lt;/h4&gt;
+
+&lt;p&gt;Basic metrics should always be there that define your normal working of infrastructure. This gives an overview of how things behave and alerts developers when things go wrong. They can be also used for benchmarking purposes.&lt;/p&gt;
+
+&lt;p&gt;An alerting system can be as simple as sending an email or a Slack message. An effective alerting system can prevent or drastically reduce downtime. Basic health metrics can be:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;System metrics like CPU, memory, load average, disk space etc&lt;/li&gt;
+  &lt;li&gt;Specific metrics for components like cache, databases etc&lt;/li&gt;
+  &lt;li&gt;Service level metrics — API response time, throughput, Apdex etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This post only highlights the points that need focus for an early-stage startup. The complexity of each point depends on your use case and the stage your startup is.&lt;/p&gt;
+
+&lt;p&gt;Will be happy to see any feedback or your learnings in the comments section below.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading.&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="infrastructure" /><category term="cloud" /><category term="gcp" /><category term="platform" /><category term="devops" /><category term="sre" /><category term="aws" /><summary type="html">Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/green-chameleon-s9CC2SKySJM-unsplash.jpg" /></entry><entry><title type="html">Giving back to the community</title><link href="http://localhost:4000/giving-back-to-community/" rel="alternate" type="text/html" title="Giving back to the community" /><published>2019-03-24T20:00:00+05:30</published><updated>2019-03-24T20:00:00+05:30</updated><id>http://localhost:4000/giving-back-to-community</id><content type="html" xml:base="http://localhost:4000/giving-back-to-community/">&lt;p&gt;This is for students/professionals who are looking to make a career in programming/computer-science/software-development and have questions like -&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How to start?&lt;/li&gt;
+  &lt;li&gt;What fields can I get into?&lt;/li&gt;
+  &lt;li&gt;What things should I do to get into xyz?&lt;/li&gt;
+  &lt;li&gt;Am I on right track?&lt;/li&gt;
+  &lt;li&gt;How to prepare for interviews?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;..etc Or any other questions.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-i-am-doing-this&quot;&gt;Why I am doing this?&lt;/h2&gt;
+&lt;p&gt;In India, lakhs of engineers graduate everyear and only a handful of engineers secure a good engineering job. &lt;a href=&quot;https://economictimes.indiatimes.com/jobs/only-6-of-those-passing-out-of-indias-engineering-colleges-are-fit-for-a-job/articleshow/64446292.cms&quot;&gt;https://economictimes.indiatimes.com/jobs/only-6-of-those-passing-out-of-indias-engineering-colleges-are-fit-for-a-job/articleshow/64446292.cms&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I can’t change the above completely but I want to focus on those who are genuinely interested in making a career in this field but lack good mentorship and connect with the current industry.&lt;/p&gt;
+
+&lt;p&gt;In my initial years of college, one thing that I had trouble with was getting good guidance. I didn’t even know in what direction should I prepare myself. With a lot of trial and error, I met with some really good people and discovered a lot of different things. This helped me to set a target and prepare for it. And this is a very common state among students in India.&lt;/p&gt;
+
+&lt;p&gt;There are many reasons for this state - outdated curriculum, lack of good teachers, mindset, unauthorized colleges etc. It’s hard to change all of this. But one can start small, so this is my attempt to guide/mentor the willing ones in the right direction.&lt;/p&gt;
+
+&lt;p&gt;IMO, Good guidance at the right time can do wonders. Getting guidance shouldn’t be hard.&lt;/p&gt;
+
+&lt;h2 id=&quot;how&quot;&gt;How?&lt;/h2&gt;
+
+&lt;p&gt;Fill up this form and then we can have a call. I’ll probably try to connect to everyone who will fill up the form but it may take up some time as it is hard to take time off with a full-time job. So be patient :)&lt;/p&gt;
+
+&lt;p&gt;Form: https://adityachowdhry09.typeform.com/to/U6UPMp&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="mentorship" /><category term="guidance" /><category term="computer science" /><category term="programming" /><summary type="html">This is for students/professionals who are looking to make a career in programming/computer-science/software-development and have questions like -</summary></entry><entry><title type="html">Things that connected - Part 1</title><link href="http://localhost:4000/things-that-connected-part-1/" rel="alternate" type="text/html" title="Things that connected - Part 1" /><published>2019-02-03T19:00:00+05:30</published><updated>2019-02-03T19:00:00+05:30</updated><id>http://localhost:4000/things-that-connected-part-1</id><content type="html" xml:base="http://localhost:4000/things-that-connected-part-1/">&lt;p&gt;I recently started to develop a habit of reading regularly. Though failing miserably in the process, I came across some content that connected with me and motivated me to keep trying.&lt;/p&gt;
+
+&lt;p&gt;Usually, I forget things that I read but this time to make it persist somehow I thought of documenting it. Thus, this series of posts is an attempt to collate thoughts, blogs and books that connected with me at some level. These are not recommendations but highlights of things that connected with me.&lt;/p&gt;
+
+&lt;h2 id=&quot;first-things-first---why&quot;&gt;First things first - Why?&lt;/h2&gt;
+&lt;p&gt;A few days back one of my senior asked me “Why do you want to read?” , when asked upon what is the strategy to complete a book because I am not able to complete most of the books that I start with.&lt;/p&gt;
+
+&lt;p&gt;My first reaction to it was “because everyone does it ?”. Then I thought about it more and realised my aim was to broaden my mind and learn new things that help me understand &amp;amp; push myself in different aspects of life be it personal or professional. But still, there was something that I couldn’t say it confidently.&lt;/p&gt;
+
+&lt;p&gt;The other day I was talking to one of my friends, who was telling his experience of a bad interview. While talking, we stumbled upon how to prepare for interviews and keep up the motivation. When we were deep into the conversation I started recommending him to make a system of studying and not goals (explanation). This thing immediately connected with him as well.&lt;/p&gt;
+
+&lt;p&gt;This recommendation was from a book that I read sometime back and thus I realised the gradual change in my thinking process. This cleared up my doubt on the question “Why to read?”.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-how&quot;&gt;But how?&lt;/h2&gt;
+&lt;p&gt;Initially, I used to pick a book and try to complete it. I promised my self that I would not pick up another book until I finish the previous. I thought this will push me to finish my previous one, but as a result, I never finished that book and in turn, couldn’t start a new one.&lt;/p&gt;
+
+&lt;p&gt;This went for some time and I thought of searching “How to read a book”. Initially, I thought how stupid is this but it turned out to be quite helpful and in a few months I have finished one book, completed more than 80% for two books and read a lot of blogs. This is a big improvement for me.&lt;/p&gt;
+
+&lt;p&gt;Some blogs that I remember on this topic:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Why reading 100 books a year won’t make you successful - https://medium.com/swlh/why-reading-100-books-a-year-wont-make-you-successful-1863dad5944d&lt;/p&gt;
+
+    &lt;p&gt;I stumbled upon this when I was trying to hack myself around reading more number of books. I used to set targets to complete the books and fail alomost every time. Reading started to become an uninteresting task that I just had to complete.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;The blog post talks about the importance of reading slowly and thoughtfully rather than just running to complete a target.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;“In the case of good books, the point is not to see how many of them you can get through, but rather how many can get through to you”&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Everything I Knew About Reading Was Wrong - https://hackernoon.com/everything-i-knew-about-reading-was-wrong-bde7e57fbfdc&lt;/p&gt;
+
+    &lt;p&gt;This really helped me to change my thought process around reading books. Some interesting takeaways:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;If you are not liking a book allow yourself to quit reading, and this quitting may not be forever&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;“The right book for the right person is not enough. It needs to be the right book, for the right person at the right time. sometimes you need to go on a little detour before you’re ready for what the book has to give you. The nice thing about books — they always wait where you leave them.”&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Read more than one book at a time - If you want to read a book go ahead and do it, don’t wait for the previous one to finish&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;“You skim very very quickly to find the ones that grab you, that are important and interesting for you, and then you stick to those and go really deep. There’s exploration, and there’s exploitation. So you explore a lot of books until you decide that there’s something there to exploit”&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="books" /><category term="reading" /><category term="habit" /><summary type="html">I recently started to develop a habit of reading regularly. Though failing miserably in the process, I came across some content that connected with me and motivated me to keep trying.</summary></entry><entry><title type="html">Journey of Redis At UrbanClap</title><link href="http://localhost:4000/journey-of-redis-at-urbanclap/" rel="alternate" type="text/html" title="Journey of Redis At UrbanClap" /><published>2018-09-01T16:00:00+05:30</published><updated>2018-09-01T16:00:00+05:30</updated><id>http://localhost:4000/journey-of-redis-at-urbanclap</id><content type="html" xml:base="http://localhost:4000/journey-of-redis-at-urbanclap/">&lt;h3 id=&quot;description&quot;&gt;Description&lt;/h3&gt;
 
 &lt;p&gt;This post aims at describing the architectural changes we did at UrbanClap in the implementation of Redis for caching at infrastructure and code level over a period of time due to scale and use-cases.&lt;/p&gt;
 
@@ -237,9 +403,9 @@ Source: Wikipedia&lt;/p&gt;
  
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;
 	&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;MergeSort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//Solve Left half
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;MergeSort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Solve Right half
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;Merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Merge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;halves&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+	&lt;span class=&quot;n&quot;&gt;MergeSort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//Solve Left half&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;MergeSort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Solve Right half&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;//Merge left and right halves&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;Merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;

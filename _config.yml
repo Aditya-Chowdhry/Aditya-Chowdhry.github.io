@@ -16,7 +16,7 @@ resume: false
 resume-external: false
 resume-url: https://google.com/?q=my+resume
 
-url: http://adityachowdhry.com
+url: http://www.adityachowdhry.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -46,10 +46,10 @@ linkedin: adityachowdhry09
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
 email: adityachowdhry09@gmail.com
-quora: Aditya-Chowdhry
+#quora: Aditya-Chowdhry
 #acebook: adityachowdhry09
 # reddit: username
-# medium: medium
+medium: adityachowdhry_67777
 # vimeo: myvimeo
 
 authors:
