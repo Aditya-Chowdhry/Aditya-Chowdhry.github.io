@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-19T21:25:09+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Key Learnings - Maintaining Cloud Infrastructure</title><link href="http://localhost:4000/key-learnings/" rel="alternate" type="text/html" title="Key Learnings - Maintaining Cloud Infrastructure" /><published>2019-10-16T10:00:00+05:30</published><updated>2019-10-16T10:00:00+05:30</updated><id>http://localhost:4000/key-learnings</id><content type="html" xml:base="http://localhost:4000/key-learnings/">&lt;p&gt;Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-19T23:02:26+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Kubectl Hacks - Be productive and safe</title><link href="http://localhost:4000/kubectl-hacks/" rel="alternate" type="text/html" title="Kubectl Hacks - Be productive and safe" /><published>2020-04-02T15:00:00+05:30</published><updated>2020-04-02T15:00:00+05:30</updated><id>http://localhost:4000/kubectl-hacks</id><content type="html" xml:base="http://localhost:4000/kubectl-hacks/">&lt;p&gt;At &lt;a href=&quot;https://www.gojek.io/&quot;&gt;Gojek&lt;/a&gt;, I have been playing around with &lt;a href=&quot;https://kubernetes.io/&quot;&gt;kubernetes&lt;/a&gt; for a few months now. Spending more and more time with its command line interface — &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/overview/&quot;&gt;kubectl&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This post talks about extending kubectl with few of the plugins that have been useful to me in day to day debugging/maintaining things on k8s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.unsplash.com/photo-1587571164348-b04475b8bd2d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=2100&amp;amp;q=80&quot; alt=&quot;Photo by Carl Heyerdahl on Unsplash&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note: I am using zsh, so some of them are ohmyzsh plugins&lt;/p&gt;
+
+&lt;p&gt;Lets go through them!&lt;/p&gt;
+
+&lt;h2 id=&quot;ohmyzsh-kubectl&quot;&gt;&lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl&quot;&gt;ohmyzsh kubectl&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This plugins provides aliases for common &lt;em&gt;kubectl&lt;/em&gt; commands. You can get complete list of aliases here — &lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl#aliases&quot;&gt;kubectl-aliases&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Few examples&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;k for &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl&lt;/code&gt; — The kubectl command&lt;/li&gt;
+  &lt;li&gt;kgp for &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl get pods&lt;/code&gt; — List all pods in ps output format&lt;/li&gt;
+  &lt;li&gt;kgswide for &lt;code class=&quot;highlighter-rouge&quot;&gt;kgs -o wide&lt;/code&gt; — After listing all services, output in plain-text format with any additional information&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/kubectl-aliases.png&quot; alt=&quot;Image&quot; /&gt; &lt;em&gt;Kubectl aliases&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kubectx--kubens--power-tools-for-kubectl--fzf-&quot;&gt;&lt;a href=&quot;https://github.com/ahmetb/kubectx/&quot;&gt;kubectx + kubens&lt;/a&gt; — Power tools for kubectl (+ &lt;a href=&quot;https://github.com/junegunn/fzf&quot;&gt;fzf&lt;/a&gt; )&lt;/h2&gt;
+
+&lt;p&gt;If you work with multiple clusters or namespaces then this tool is a blessing.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;kubectx&lt;/strong&gt; — helps you switch between clusters back and forth&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;kubens&lt;/strong&gt; — helps you switch between namespaces back and forth&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Kubectx&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Kubens&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/images/kubectx.gif&quot; alt=&quot;kubectx&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/images/kubens.gif&quot; alt=&quot;kubens&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;It shortens&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Setting context: &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config get-contexts&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config use-context &amp;lt;context-name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Setting namespace: &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl get namespaces&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config set-context --current --namespace=&amp;lt;namespace&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Along with &lt;a href=&quot;https://github.com/junegunn/fzf&quot;&gt;fzf&lt;/a&gt; — A command-line fuzzy finder, it gives an interactive menu to select the context/namespace as shown above in gif&lt;/p&gt;
+
+&lt;h2 id=&quot;kube-ps1-or-zsh-kubectl-prompt&quot;&gt;&lt;a href=&quot;https://github.com/jonmosco/kube-ps1&quot;&gt;kube-ps1&lt;/a&gt; or &lt;a href=&quot;https://github.com/superbrothers/zsh-kubectl-prompt&quot;&gt;zsh-kubectl-prompt&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;When dealing with multiple contexts and namespaces, it becomes confusing to determine what is the current context/namespace you are working on.&lt;/p&gt;
+
+&lt;p&gt;You can check for the current context/namespace using &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config current-context&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config view&lt;/code&gt; to determine current namespace. This is fine when you are not dealing with multiple contexts and don’t have to switch frequently.&lt;/p&gt;
+
+&lt;p&gt;But if you do, this can be a saviour when doing certain operations or debugging production incidents where you have to change contexts frequently. Any wrong step and you can end up doing destructive operations on wrong cluster.&lt;/p&gt;
+
+&lt;p&gt;kube-ps1 or zsh-kubectl-prompt adds context and namespace upfront in your prompt, so that you can be sure of cluster and namespace you are working on.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/context-1.png&quot; alt=&quot;zsh-kubectl-prompt&quot; /&gt;
+&lt;em&gt;zsh-kubectl-prompt&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/context-2.png&quot; alt=&quot;kube-ps1&quot; /&gt;
+&lt;em&gt;kube-ps1&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kubetail&quot;&gt;&lt;a href=&quot;https://github.com/johanhaleby/kubetail&quot;&gt;kubetail&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A tiny bash script to tail multiple pod logs in single stream. It is simply &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl logs -f&lt;/code&gt; but for multiple pods.&lt;/p&gt;
+
+&lt;p&gt;You can do regex matching on pods, view specific container logs or can simply give multiple pods. This tool comes in handy when debugging issues with our applications.
+&lt;img src=&quot;/assets/images/kubetail.png&quot; alt=&quot;kubetail&quot; /&gt;
+&lt;em&gt;kubetail in action&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kubespy&quot;&gt;&lt;a href=&quot;https://github.com/pulumi/kubespy&quot;&gt;kubespy&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Kubespy tools help in observing Kubernetes resources in real time. This is useful when you want to keep a track of resources on various actions you perform.&lt;/p&gt;
+
+&lt;p&gt;checkout kubespy in action —
+&lt;img src=&quot;/assets/images/kubespy.gif&quot; alt=&quot;kubespy&quot; /&gt;
+&lt;em&gt;kubespy observing deployment resource status changes&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;These were a small set of plugins that I use in day to day activities. K8s have its own plugin package manager named as &lt;a href=&quot;https://github.com/kubernetes-sigs/krew&quot;&gt;krew&lt;/a&gt;. They have around 70 plugins — do check them out &lt;a href=&quot;https://github.com/kubernetes-sigs/krew-index/blob/master/plugins.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Let me know if these were useful to you as well. If you have any suggestions do comment!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="kubernetes" /><category term="k8s" /><category term="kubectl" /><category term="cloud" /><category term="sre" /><category term="devops" /><category term="infrastructure" /><summary type="html">At Gojek, I have been playing around with kubernetes for a few months now. Spending more and more time with its command line interface — kubectl</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/k8s.png" /></entry><entry><title type="html">Key Learnings - Maintaining Cloud Infrastructure</title><link href="http://localhost:4000/key-learnings/" rel="alternate" type="text/html" title="Key Learnings - Maintaining Cloud Infrastructure" /><published>2019-10-16T10:00:00+05:30</published><updated>2019-10-16T10:00:00+05:30</updated><id>http://localhost:4000/key-learnings</id><content type="html" xml:base="http://localhost:4000/key-learnings/">&lt;p&gt;Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.&lt;/p&gt;
 
 &lt;p&gt;Initial stage startups have the pressure to ship out product and new features ASAP which in turns affect the overall tech quality. Contrary to this aggressive focus on quality, may affect your startups business.&lt;/p&gt;
 
