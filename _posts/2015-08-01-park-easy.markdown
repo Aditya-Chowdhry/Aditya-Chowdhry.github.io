@@ -21,7 +21,7 @@ externalLink: false
 
 ![Screenshot](/assets/park-easy-screenshot.png)
 
-Digitization of parking system to solve current parking crisis in India by providing facilities such as live parking status, variable rates, pre-booking feature and cashless payments. Working example - [Demo](http://vast-wave-6400.herokuapp.com)
+Digitization of parking system to solve current parking crisis in India by providing facilities such as live parking status, variable rates, pre-booking feature and cashless payments. Working example - [Demo](https://vast-wave-6400.herokuapp.com)
 
 ---
 
@@ -37,5 +37,5 @@ What has inside?
 
 ---
 
-[Check it out](http://sergiokopplin.github.io/indigo/) here.
-If you need some help, just [tell me](http://github.com/sergiokopplin/indigo/issues).
+[Check it out](https://sergiokopplin.github.io/indigo/) here.
+If you need some help, just [tell me](https://github.com/sergiokopplin/indigo/issues).

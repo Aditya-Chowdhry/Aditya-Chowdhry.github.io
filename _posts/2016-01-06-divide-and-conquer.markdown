@@ -76,7 +76,7 @@ for i = l to r
 
 {% endhighlight %}
 
-Implementation link: [Ideone.com](!http://ideone.com/cJCaLg)
+Implementation link: [Ideone.com](!https://ideone.com/cJCaLg)
 
 Complexity : O(nlogn)
 
@@ -132,8 +132,8 @@ while(i<=mid && j<=r){
   index++;
 } 
 {% endhighlight %}
-My implementation: [Ideone.com](http://ideone.com/INt2aw)<br>
-Geeksforgeeks: [Count Inversions in an array | Set 1 (Using Merge Sort) - GeeksforGeeks](http://www.geeksforgeeks.org/counting-inversions/)
+My implementation: [Ideone.com](https://ideone.com/INt2aw)<br>
+Geeksforgeeks: [Count Inversions in an array | Set 1 (Using Merge Sort) - GeeksforGeeks](https://www.geeksforgeeks.org/counting-inversions/)
 
 ### 2. Count of smaller numbers after self
 
@@ -163,7 +163,7 @@ This problem is same as above with only one modification that we need to make a 
 
 For this it is necessary to preserve index also. Either you can create a structure or pair. For making pair I would suggest to go through C++ STL.
 
-My solution: [Ideone.com](http://ideone.com/IWx2Rp)
+My solution: [Ideone.com](https://ideone.com/IWx2Rp)
 
 ### 3. Count of range sum
 
@@ -184,6 +184,6 @@ A **prefix sum array**. Think about the solution using prefix sum array. If you 
 
 Note: There are more approaches to this same problem.
 
-This blog explains this thoroughly: [Count of Range Sum](http://52.20.106.37/count-of-range-sum/)
+This blog explains this thoroughly: [Count of Range Sum](https://52.20.106.37/count-of-range-sum/)
 
 <center>Suggestions/Links are welcome.</center>

@@ -76,7 +76,7 @@ To keep it simple for interview preparations I found these three resources best 
 just for the sake of getting a job. If you are enjoying it, then do it. It looks difficult at first but you start enjoying afterwards.
 
 ##### System Design Interview Preparation
-System design interview questions are open-ended questions and are asked to test your application ability. You are good in theory but you should know how things are applied. For example, a very common system design interview question is “How will you design a URL shortener?”. This is a very good video that explains this: [system­design](http://www.hiredintech.com/system­design) 
+System design interview questions are open-ended questions and are asked to test your application ability. You are good in theory but you should know how things are applied. For example, a very common system design interview question is “How will you design a URL shortener?”. This is a very good video that explains this: [system­design](https://www.hiredintech.com/system­design) 
 
 Project based questions are very common. So be prepared and go through your projects before an interview. Interviewers ask specific questions to your projects.
 
