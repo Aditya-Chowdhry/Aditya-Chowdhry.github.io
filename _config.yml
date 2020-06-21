@@ -16,7 +16,7 @@ resume: false
 resume-external: false
 resume-url: https://google.com/?q=my+resume
 
-url: https://www.adityachowdhry.com
+url: https://adityachowdhry.com
 # your url: https://USERNAME.github.io
 
 permalink: /:title/
@@ -49,7 +49,7 @@ email: adityachowdhry09@gmail.com
 #quora: Aditya-Chowdhry
 #acebook: adityachowdhry09
 # reddit: username
-medium: adityachowdhry_67777
+medium: adityachowdhry
 # vimeo: myvimeo
 
 authors:
@@ -58,7 +58,7 @@ authors:
         bio: Software Engineer
         external-image: false
         picture: assets/images/profile.jpg
-        twitter: adityachowdhry
+        twitter: adityachowdhry9
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
