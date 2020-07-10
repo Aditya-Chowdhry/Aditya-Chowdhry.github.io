@@ -1,4 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-21T07:22:09+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Kubectl Hacks - Be productive and safe</title><link href="http://localhost:4000/kubectl-hacks/" rel="alternate" type="text/html" title="Kubectl Hacks - Be productive and safe" /><published>2020-04-02T15:00:00+05:30</published><updated>2020-04-02T15:00:00+05:30</updated><id>http://localhost:4000/kubectl-hacks</id><content type="html" xml:base="http://localhost:4000/kubectl-hacks/">&lt;p&gt;At &lt;a href=&quot;https://www.gojek.io/&quot;&gt;Gojek&lt;/a&gt;, I have been playing around with &lt;a href=&quot;https://kubernetes.io/&quot;&gt;kubernetes&lt;/a&gt; for a few months now. Spending more and more time with its command line interface — &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/overview/&quot;&gt;kubectl&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-07-11T04:30:24+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Hashes in Ruby (2020) - Gotchas with Ruby hash syntax and ruby symbols</title><link href="http://localhost:4000/hashes-in-ruby-2020/" rel="alternate" type="text/html" title="Hashes in Ruby (2020) - Gotchas with Ruby hash syntax and ruby symbols" /><published>2020-07-11T04:00:00+05:30</published><updated>2020-07-11T04:00:00+05:30</updated><id>http://localhost:4000/hashes-in-ruby-2020</id><content type="html" xml:base="http://localhost:4000/hashes-in-ruby-2020/">&lt;h2 id=&quot;motivation--why-to-write-about-hashes-in-ruby&quot;&gt;&lt;strong&gt;Motivation- Why to write about Hashes in Ruby?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;There are already a lot of blogs and guides around Ruby, so why another? Despite the existing material on this topic, I have seen new devs who have just started with the language to get confused with hash syntax in ruby. We’ll be discussing the why!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tl;dr&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ways-to-write-a-ruby-hash&quot;&gt;Ways to write a Ruby Hash&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;color&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;car&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#Getting color of vehicle value&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;color&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;:color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;:type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;car&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#Getting color of vehicle value&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;color: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;car&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#Getting color of vehicle value&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;whats-the-problem-with-ruby-hash-syntax&quot;&gt;&lt;strong&gt;What’s the problem with Ruby hash syntax?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;ruby-symbols-and-change-in-hashes-syntax&quot;&gt;Ruby Symbols And Change in hashes syntax&lt;/h3&gt;
+
+&lt;p&gt;New devs starting out with Ruby usually overlook the concept of symbols and often discover the use cases and other factors during the process of coding.&lt;/p&gt;
+
+&lt;p&gt;What does it look like?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;:foobar&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A ruby symbol is often confused with a variable. But it is not. It is an identifier. I won’t go in detail of explaining the concept of a Symbol in ruby. It is well explained here - &lt;a href=&quot;https://www.rubyguides.com/2018/02/ruby-symbols/&quot;&gt;rubyguides&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;But then why are we even talking about it here?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This is because symbols can be used in a Ruby Hash. Just like we used in these examples&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#Example 1 (symbol with hash-rocket)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;:color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;:type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;car&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#Getting color of vehicle value&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#Example 2 (just symbol, similar to a json)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;color: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;car&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#Getting color of vehicle value&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Example 1 follows an old syntax of ruby to write a hash i.e a symbol ⇒ value. Here. &lt;strong&gt;:color&lt;/strong&gt; is a symbol which has a value &lt;strong&gt;red.&lt;/strong&gt; (This is still valid)&lt;/p&gt;
+
+&lt;p&gt;It has a bit complicated structure, thus ruby made it easier in version 1.9 by allowing to write a hash in the way it is mentioned in example 2&lt;/p&gt;
+
+&lt;p&gt;Here is the catch, &lt;strong&gt;color:&lt;/strong&gt; is still a symbol, but now it looks neat and similar to JSON type structure or other language constructs.&lt;/p&gt;
+
+&lt;p&gt;This is where problem brews up. A new dev looks at example 2 and tries to  write the following code:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;color&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;car&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Coming from Javascript mindset or other languages&lt;/p&gt;
+
+&lt;p&gt;To get color of vehicle a natural instinct would be to do:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;color&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#whaaaat??&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;but what do we get on latest ruby version, a &lt;strong&gt;nil&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;But why? This is because &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;color&quot;:&lt;/code&gt;  is still a symbol. Also, being a simple one-word, ruby easily converts it into a symbol &lt;code class=&quot;highlighter-rouge&quot;&gt;:color&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So doing a &lt;code class=&quot;highlighter-rouge&quot;&gt;vehicle[:color]&lt;/code&gt; would give a correct result&lt;/p&gt;
+
+&lt;p&gt;What if the key of hash is not a simple one word or having a whitespace? Like below examples&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;first.name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#To get first.name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#Valid syntax&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;first.name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;first name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#To get first name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#Valid syntax&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;first name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then ruby would treat the key as it is as a symbol(with quotes) i.e &lt;code class=&quot;highlighter-rouge&quot;&gt;:&quot;first.name&quot;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;:&quot;first name&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The above things were fixed in Ruby 2.2 with feature request - &lt;a href=&quot;https://bugs.ruby-lang.org/issues/4276&quot;&gt;https://bugs.ruby-lang.org/issues/4276&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	Thanks for reading the post! Hope this brings some clarity. 
+	Comment below if you have any questions
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="ruby" /><category term="rubyonrails" /><category term="ror" /><category term="rubyhashes" /><category term="symbols" /><category term="hashsyntaxes" /><category term="hashes-ruby" /><summary type="html">Motivation- Why to write about Hashes in Ruby?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/ruby.png" /></entry><entry><title type="html">Kubectl Hacks - Be productive and safe</title><link href="http://localhost:4000/kubectl-hacks/" rel="alternate" type="text/html" title="Kubectl Hacks - Be productive and safe" /><published>2020-04-02T15:00:00+05:30</published><updated>2020-04-02T15:00:00+05:30</updated><id>http://localhost:4000/kubectl-hacks</id><content type="html" xml:base="http://localhost:4000/kubectl-hacks/">&lt;p&gt;At &lt;a href=&quot;https://www.gojek.io/&quot;&gt;Gojek&lt;/a&gt;, I have been playing around with &lt;a href=&quot;https://kubernetes.io/&quot;&gt;kubernetes&lt;/a&gt; for a few months now. Spending more and more time with its command line interface — &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/overview/&quot;&gt;kubectl&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;This post talks about extending kubectl with few of the plugins that have been useful to me in day to day debugging/maintaining things on k8s.&lt;/p&gt;
 

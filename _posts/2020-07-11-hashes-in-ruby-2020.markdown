@@ -21,8 +21,6 @@ author: adityachowdhry
 externalLink: false
 ---
 
-# Hashes in Ruby (2020) - Gotchas with Ruby hash syntax and ruby symbols
-
 ## **Motivation- Why to write about Hashes in Ruby?**
 
 There are already a lot of blogs and guides around Ruby, so why another? Despite the existing material on this topic, I have seen new devs who have just started with the language to get confused with hash syntax in ruby. We'll be discussing the why!
@@ -170,6 +168,6 @@ Then ruby would treat the key as it is as a symbol(with quotes) i.e `:"first.nam
 
 The above things were fixed in Ruby 2.2 with feature request - [https://bugs.ruby-lang.org/issues/4276](https://bugs.ruby-lang.org/issues/4276)
 
-		Thanks for reading the post! Hope this brings some sort of clarity. 
-		Comment below if you have any questions!
+		Thanks for reading the post! Hope this brings some clarity. 
+		Comment below if you have any questions
 	
