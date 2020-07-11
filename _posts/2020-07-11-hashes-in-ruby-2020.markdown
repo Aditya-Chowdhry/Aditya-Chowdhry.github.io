@@ -1,5 +1,5 @@
 ---
-title: "Hashes in Ruby (2020) - Gotchas with Ruby hash syntax and ruby symbols"
+title: "Hashes in Ruby (2020) - Confusion with Ruby hash syntax and ruby symbols"
 layout: post
 date: 2020-07-11 04:00
 tag:
