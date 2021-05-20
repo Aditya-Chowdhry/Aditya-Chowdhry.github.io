@@ -1,5 +1,5 @@
 ---
-title: "Kubectl Hacks - Be productive and safe"
+title: "Kubectl Hacks - Be productive"
 layout: post
 date: 2020-04-02 15:00
 tag:
@@ -96,5 +96,9 @@ checkout kubespy in action —
 * * *
 
 These were a small set of plugins that I use in day to day activities. K8s have its own plugin package manager named as [krew](https://github.com/kubernetes-sigs/krew). They have around 70 plugins — do check them out [here](https://github.com/kubernetes-sigs/krew-index/blob/master/plugins.md)
+
+
+## [K9s - Kubernetes CLI To Manage Your Clusters In Style!](https://github.com/derailed/k9s)
+K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
 
 ***Let me know if these were useful to you as well. If you have any suggestions do comment!***
