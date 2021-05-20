@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-07-11T11:49:52+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Hashes in Ruby (2020) - Confusion with Ruby hash syntax and ruby symbols</title><link href="http://localhost:4000/hashes-in-ruby-2020/" rel="alternate" type="text/html" title="Hashes in Ruby (2020) - Confusion with Ruby hash syntax and ruby symbols" /><published>2020-07-11T04:00:00+05:30</published><updated>2020-07-11T04:00:00+05:30</updated><id>http://localhost:4000/hashes-in-ruby-2020</id><content type="html" xml:base="http://localhost:4000/hashes-in-ruby-2020/">&lt;h2 id=&quot;motivation--why-to-write-about-hashes-in-ruby&quot;&gt;&lt;strong&gt;Motivation- Why to write about Hashes in Ruby?&lt;/strong&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-21T01:11:17+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aditya Chowdhry</title><subtitle>Aditya Chowdhry personal website</subtitle><entry><title type="html">Avoid These Pitfalls While Configuring Your GKE</title><link href="http://localhost:4000/avoid-these-pitfalls-while-configuring-your-gke/" rel="alternate" type="text/html" title="Avoid These Pitfalls While Configuring Your GKE" /><published>2021-05-21T00:50:00+05:30</published><updated>2021-05-21T00:50:00+05:30</updated><id>http://localhost:4000/avoid-these-pitfalls-while-configuring-your-gke</id><content type="html" xml:base="http://localhost:4000/avoid-these-pitfalls-while-configuring-your-gke/">&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;I have been playing around with GKEs for more than a year at &lt;a href=&quot;https://www.gojek.io/&quot;&gt;Gojek&lt;/a&gt;. This post elaborates on some common pitfalls that teams get into while maintaining their GKE clusters because of less thought out configurations. Treat these points as a point of discussion within your team to arrive at an appropriate configuration.&lt;/p&gt;
+
+&lt;h2 id=&quot;pitfall-1---downtime-due-to-zone-degradation-upgrade-or-other-maintenance-activities&quot;&gt;Pitfall 1 - Downtime due to zone degradation, upgrade or other maintenance activities&lt;/h2&gt;
+
+&lt;h3 id=&quot;choosing-a-correct-cluster-type---zonal-or-regional&quot;&gt;Choosing a correct cluster type - Zonal or Regional&lt;/h3&gt;
+&lt;p&gt;Zonal clusters have a single control plane and are of two types - one with single-zone node pools and the second with multi-zone node pools.
+Recommendation - Avoid using a zonal cluster with single-zone node pools for production&lt;/p&gt;
+
+&lt;p&gt;Regional clusters involve replicated control planes in each zone which gives higher availability.&lt;/p&gt;
+
+&lt;p&gt;This &lt;a href=&quot;https://cloud.google.com/kubernetes-engine/docs/best-practices/scalability#choosing_a_regional_or_zonal_control_plane&quot;&gt;doc&lt;/a&gt; acts as a good guide for choosing between zonal and regional.&lt;/p&gt;
+
+&lt;p&gt;Since, you would need to upgrade or do maintenance activities often on a GKE cluster, spend some time on the trade-offs and select a type that suits well with your use case. This is &lt;strong&gt;immutable&lt;/strong&gt; once created.&lt;/p&gt;
+
+&lt;p&gt;In future, if you need to change the type, the only way is to create a new cluster and migrate workloads, which is a tedious task.&lt;/p&gt;
+
+&lt;h2 id=&quot;pitfall-2---scaling-issues&quot;&gt;Pitfall 2 - Scaling issues&lt;/h2&gt;
+&lt;p&gt;One day, while enjoying your coffee, you receive a pager(insert horror face here). You notice high throughput on one of your services and your autoscaled pods are failing to get scheduled. Digging further you notice, there is insufficient CPU and nodes are unable to scale further.&lt;/p&gt;
+
+&lt;p&gt;You immediately go check the Node IP address range. With this, you get the max number of nodes that can be created. This number seems to be way higher than the current number of nodes. Then why is it unable to create more nodes?&lt;/p&gt;
+
+&lt;p&gt;We’ll come to the why part later, but let us see what options do we have here to scale our cluster&lt;/p&gt;
+
+&lt;p&gt;A cluster can be scaled in two ways&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Increasing number of nodes&lt;/li&gt;
+  &lt;li&gt;Increasing node size&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Increasing node size seems to be easy, you quickly check what is the maximum number of pods that can be scheduled on a node.&lt;/p&gt;
+
+&lt;p&gt;The configuration &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_pods_per_node&lt;/code&gt;&lt;/strong&gt; seems to be a default one with value &lt;strong&gt;110&lt;/strong&gt;. Pods on the cluster are distributed evenly on all nodes, and seems like the actual number of pods getting scheduled is much lower than the 110 value.&lt;/p&gt;
+
+&lt;p&gt;Cool, let us change the machine type to a higher configuration that can accommodate more pods.&lt;/p&gt;
+
+&lt;p&gt;Uh oh! Machine type cannot be changed, you would need to create a new node pool with your target machine type and migrate your workloads there. This &lt;a href=&quot;https://cloud.google.com/kubernetes-engine/docs/tutorials/migrating-node-pool&quot;&gt;migration doc&lt;/a&gt; explains how to do it without downtime.&lt;/p&gt;
+
+&lt;p&gt;But but ..  this is only possible if we can create a new node pool in the same cluster. In this scenario, we can’t even create another node. &lt;strong&gt;meanwhile in the background you get a slack popup - hey how much time will it take to solve the issue?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sweating, you decide okay then maybe let us try the first option&lt;/p&gt;
+
+&lt;p&gt;Sure, the number of nodes in a cluster also depends on Pod IP address range and max pods per-node configuration.&lt;/p&gt;
+
+&lt;p&gt;Okay then maybe increase the Pod IP address range? GKE docs reveal Pod IP address range is actually taken from VPC-native cluster’s subnet secondary IP range. The doc further reveals that doing so is not supported as it has the potential to put the cluster in an unstable state.&lt;/p&gt;
+
+&lt;p&gt;Okay okay, calm down! But what about the max number of pods?&lt;/p&gt;
+
+&lt;p&gt;Sad news, You can only configure the maximum number of Pods per node at cluster creation time and at node pool creation time. And now we are back to zero.&lt;/p&gt;
+
+&lt;center&gt;&lt;i&gt;cries in a corner&lt;/i&gt;&lt;/center&gt;
+
+&lt;p&gt;This incident brings our attention to three configurations that are very crucial while creating a cluster&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Node IP address range&lt;/li&gt;
+  &lt;li&gt;Pod IP address range&lt;/li&gt;
+  &lt;li&gt;Max pods per node&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now, coming to the why part. Let us try to work this through an example to understand the calculation of the number of nodes&lt;/p&gt;
+
+&lt;p&gt;Assume Node IP range (primary range) as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/23&lt;/code&gt; and Pod IP range (secondary range) as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/20&lt;/code&gt;
+This roughly translates to&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;/23&lt;/strong&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^9 = 512&lt;/code&gt;, in which 4 addresses are reserved. Hence, a total of &lt;em&gt;508 nodes&lt;/em&gt; are possible&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;/20&lt;/strong&gt; to  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^12 = 4096&lt;/code&gt;, in which 4 addresses are reserved. Hence, a total of &lt;em&gt;4092 pods&lt;/em&gt; can be scheduled.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Taking max pods per node default value as 110, GKE allocates addresses to each node with at least twice the number of max pods per node i.e 256 in this case. (checkout this &lt;a href=&quot;https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr#cidr_ranges_for_clusters&quot;&gt;table&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Now we can calculate the number of nodes as  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Number of pod IP addresses/Number of IP addresses assigned to each node&lt;/code&gt; which is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4092/256&lt;/code&gt; ~ &lt;strong&gt;15 nodes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So as you see, though 512 nodes are possible, the number of nodes can vary depending on pod IP address range and max pods per node.&lt;/p&gt;
+
+&lt;h2 id=&quot;pitfall-3---frequent-upgrades&quot;&gt;Pitfall 3 - Frequent upgrades&lt;/h2&gt;
+
+&lt;p&gt;Kubernetes follows a periodic release cycle, which is propagated via GKE releases. GKE releases more often than the open-source Kubernetes, it becomes difficult to keep up manually with the upgrades. Depending upon your &lt;em&gt;nature of workloads&lt;/em&gt;, you can enrol to a release channel, in which Google automatically manages the version and upgrade cadence for the cluster and its node pools. You can read more about &lt;a href=&quot;https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels&quot;&gt;release channels here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a catch here, Google upgrades the control plane of a cluster automatically even if you are not enrolled in a release channel. So be sure to assign a maintenance window that is least disruptive to your business.&lt;/p&gt;
+
+&lt;p&gt;Let me know if these points are helpful.&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="sre" /><category term="kubernetes" /><category term="gke" /><category term="google-kubernetes-engine" /><category term="devops" /><summary type="html">Intro I have been playing around with GKEs for more than a year at Gojek. This post elaborates on some common pitfalls that teams get into while maintaining their GKE clusters because of less thought out configurations. Treat these points as a point of discussion within your team to arrive at an appropriate configuration.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/gke.png" /><media:content medium="image" url="http://localhost:4000/assets/gke.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Hashes in Ruby (2020) - Confusion with Ruby hash syntax and ruby symbols</title><link href="http://localhost:4000/hashes-in-ruby-2020/" rel="alternate" type="text/html" title="Hashes in Ruby (2020) - Confusion with Ruby hash syntax and ruby symbols" /><published>2020-07-11T04:00:00+05:30</published><updated>2020-07-11T04:00:00+05:30</updated><id>http://localhost:4000/hashes-in-ruby-2020</id><content type="html" xml:base="http://localhost:4000/hashes-in-ruby-2020/">&lt;h2 id=&quot;motivation--why-to-write-about-hashes-in-ruby&quot;&gt;&lt;strong&gt;Motivation- Why to write about Hashes in Ruby?&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;There are already a lot of blogs and guides around Ruby, so why another? Despite the existing material on this topic, I have seen new devs who have just started with the language to get confused with hash syntax in ruby. We’ll be discussing the why!&lt;/p&gt;
 
@@ -104,9 +184,9 @@
 
 &lt;p&gt;but what do we get on latest ruby version, a &lt;strong&gt;nil&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;But why? This is because &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;color&quot;:&lt;/code&gt;  is still a symbol. Also, being a simple one-word, ruby easily converts it into a symbol &lt;code class=&quot;highlighter-rouge&quot;&gt;:color&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;But why? This is because &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;color&quot;:&lt;/code&gt;  is still a symbol. Also, being a simple one-word, ruby easily converts it into a symbol &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:color&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;So doing a &lt;code class=&quot;highlighter-rouge&quot;&gt;vehicle[:color]&lt;/code&gt; would give a correct result&lt;/p&gt;
+&lt;p&gt;So doing a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vehicle[:color]&lt;/code&gt; would give a correct result&lt;/p&gt;
 
 &lt;p&gt;What if the key of hash is not a simple one word or having a whitespace? Like below examples&lt;/p&gt;
 
@@ -130,13 +210,13 @@
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Then ruby would treat the key as it is as a symbol(with quotes) i.e &lt;code class=&quot;highlighter-rouge&quot;&gt;:&quot;first.name&quot;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;:&quot;first name&quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then ruby would treat the key as it is as a symbol(with quotes) i.e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:&quot;first.name&quot;&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:&quot;first name&quot;&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;The above things were fixed in Ruby 2.2 with feature request - &lt;a href=&quot;https://bugs.ruby-lang.org/issues/4276&quot;&gt;https://bugs.ruby-lang.org/issues/4276&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	Thanks for reading the post! Hope this brings some clarity. 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	Thanks for reading the post! Hope this brings some clarity. 
 	Comment below if you have any questions
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="ruby" /><category term="rubyonrails" /><category term="ror" /><category term="rubyhashes" /><category term="symbols" /><category term="hashsyntaxes" /><category term="hashes-ruby" /><summary type="html">Motivation- Why to write about Hashes in Ruby?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/ruby.png" /></entry><entry><title type="html">Kubectl Hacks - Be productive and safe</title><link href="http://localhost:4000/kubectl-hacks/" rel="alternate" type="text/html" title="Kubectl Hacks - Be productive and safe" /><published>2020-04-02T15:00:00+05:30</published><updated>2020-04-02T15:00:00+05:30</updated><id>http://localhost:4000/kubectl-hacks</id><content type="html" xml:base="http://localhost:4000/kubectl-hacks/">&lt;p&gt;At &lt;a href=&quot;https://www.gojek.io/&quot;&gt;Gojek&lt;/a&gt;, I have been playing around with &lt;a href=&quot;https://kubernetes.io/&quot;&gt;kubernetes&lt;/a&gt; for a few months now. Spending more and more time with its command line interface — &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/overview/&quot;&gt;kubectl&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="ruby" /><category term="rubyonrails" /><category term="ror" /><category term="rubyhashes" /><category term="symbols" /><category term="hashsyntaxes" /><category term="hashes-ruby" /><summary type="html">Motivation- Why to write about Hashes in Ruby?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/ruby.png" /><media:content medium="image" url="http://localhost:4000/assets/ruby.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kubectl Hacks - Be productive and safe</title><link href="http://localhost:4000/kubectl-hacks/" rel="alternate" type="text/html" title="Kubectl Hacks - Be productive and safe" /><published>2020-04-02T15:00:00+05:30</published><updated>2020-04-02T15:00:00+05:30</updated><id>http://localhost:4000/kubectl-hacks</id><content type="html" xml:base="http://localhost:4000/kubectl-hacks/">&lt;p&gt;At &lt;a href=&quot;https://www.gojek.io/&quot;&gt;Gojek&lt;/a&gt;, I have been playing around with &lt;a href=&quot;https://kubernetes.io/&quot;&gt;kubernetes&lt;/a&gt; for a few months now. Spending more and more time with its command line interface — &lt;strong&gt;&lt;em&gt;&lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/overview/&quot;&gt;kubectl&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;This post talks about extending kubectl with few of the plugins that have been useful to me in day to day debugging/maintaining things on k8s.&lt;/p&gt;
 
@@ -153,9 +233,9 @@
 &lt;p&gt;Few examples&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;k for &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl&lt;/code&gt; — The kubectl command&lt;/li&gt;
-  &lt;li&gt;kgp for &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl get pods&lt;/code&gt; — List all pods in ps output format&lt;/li&gt;
-  &lt;li&gt;kgswide for &lt;code class=&quot;highlighter-rouge&quot;&gt;kgs -o wide&lt;/code&gt; — After listing all services, output in plain-text format with any additional information&lt;/li&gt;
+  &lt;li&gt;k for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl&lt;/code&gt; — The kubectl command&lt;/li&gt;
+  &lt;li&gt;kgp for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl get pods&lt;/code&gt; — List all pods in ps output format&lt;/li&gt;
+  &lt;li&gt;kgswide for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kgs -o wide&lt;/code&gt; — After listing all services, output in plain-text format with any additional information&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/kubectl-aliases.png&quot; alt=&quot;Image&quot; /&gt; &lt;em&gt;Kubectl aliases&lt;/em&gt;&lt;/p&gt;
@@ -187,8 +267,8 @@
 &lt;p&gt;It shortens&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Setting context: &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config get-contexts&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config use-context &amp;lt;context-name&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Setting namespace: &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl get namespaces&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config set-context --current --namespace=&amp;lt;namespace&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Setting context: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl config get-contexts&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl config use-context &amp;lt;context-name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Setting namespace: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl get namespaces&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl config set-context --current --namespace=&amp;lt;namespace&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Along with &lt;a href=&quot;https://github.com/junegunn/fzf&quot;&gt;fzf&lt;/a&gt; — A command-line fuzzy finder, it gives an interactive menu to select the context/namespace as shown above in gif&lt;/p&gt;
@@ -197,7 +277,7 @@
 
 &lt;p&gt;When dealing with multiple contexts and namespaces, it becomes confusing to determine what is the current context/namespace you are working on.&lt;/p&gt;
 
-&lt;p&gt;You can check for the current context/namespace using &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config current-context&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl config view&lt;/code&gt; to determine current namespace. This is fine when you are not dealing with multiple contexts and don’t have to switch frequently.&lt;/p&gt;
+&lt;p&gt;You can check for the current context/namespace using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl config current-context&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl config view&lt;/code&gt; to determine current namespace. This is fine when you are not dealing with multiple contexts and don’t have to switch frequently.&lt;/p&gt;
 
 &lt;p&gt;But if you do, this can be a saviour when doing certain operations or debugging production incidents where you have to change contexts frequently. Any wrong step and you can end up doing destructive operations on wrong cluster.&lt;/p&gt;
 
@@ -210,7 +290,7 @@
 &lt;em&gt;kube-ps1&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;kubetail&quot;&gt;&lt;a href=&quot;https://github.com/johanhaleby/kubetail&quot;&gt;kubetail&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;A tiny bash script to tail multiple pod logs in single stream. It is simply &lt;code class=&quot;highlighter-rouge&quot;&gt;kubectl logs -f&lt;/code&gt; but for multiple pods.&lt;/p&gt;
+&lt;p&gt;A tiny bash script to tail multiple pod logs in single stream. It is simply &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl logs -f&lt;/code&gt; but for multiple pods.&lt;/p&gt;
 
 &lt;p&gt;You can do regex matching on pods, view specific container logs or can simply give multiple pods. This tool comes in handy when debugging issues with our applications.
 &lt;img src=&quot;/assets/images/kubetail.png&quot; alt=&quot;kubetail&quot; /&gt;
@@ -227,7 +307,7 @@
 
 &lt;p&gt;These were a small set of plugins that I use in day to day activities. K8s have its own plugin package manager named as &lt;a href=&quot;https://github.com/kubernetes-sigs/krew&quot;&gt;krew&lt;/a&gt;. They have around 70 plugins — do check them out &lt;a href=&quot;https://github.com/kubernetes-sigs/krew-index/blob/master/plugins.md&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Let me know if these were useful to you as well. If you have any suggestions do comment!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="kubernetes" /><category term="k8s" /><category term="kubectl" /><category term="cloud" /><category term="sre" /><category term="devops" /><category term="infrastructure" /><summary type="html">At Gojek, I have been playing around with kubernetes for a few months now. Spending more and more time with its command line interface — kubectl</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/k8s.png" /></entry><entry><title type="html">Key Learnings - Maintaining Cloud Infrastructure</title><link href="http://localhost:4000/key-learnings/" rel="alternate" type="text/html" title="Key Learnings - Maintaining Cloud Infrastructure" /><published>2019-10-16T10:00:00+05:30</published><updated>2019-10-16T10:00:00+05:30</updated><id>http://localhost:4000/key-learnings</id><content type="html" xml:base="http://localhost:4000/key-learnings/">&lt;p&gt;Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Let me know if these were useful to you as well. If you have any suggestions do comment!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="kubernetes" /><category term="k8s" /><category term="kubectl" /><category term="cloud" /><category term="sre" /><category term="devops" /><category term="infrastructure" /><summary type="html">At Gojek, I have been playing around with kubernetes for a few months now. Spending more and more time with its command line interface — kubectl</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/k8s.png" /><media:content medium="image" url="http://localhost:4000/assets/k8s.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Key Learnings - Maintaining Cloud Infrastructure</title><link href="http://localhost:4000/key-learnings/" rel="alternate" type="text/html" title="Key Learnings - Maintaining Cloud Infrastructure" /><published>2019-10-16T10:00:00+05:30</published><updated>2019-10-16T10:00:00+05:30</updated><id>http://localhost:4000/key-learnings</id><content type="html" xml:base="http://localhost:4000/key-learnings/">&lt;p&gt;Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.&lt;/p&gt;
 
 &lt;p&gt;Initial stage startups have the pressure to ship out product and new features ASAP which in turns affect the overall tech quality. Contrary to this aggressive focus on quality, may affect your startups business.&lt;/p&gt;
 
@@ -312,7 +392,7 @@ What versions of Postgres are we using in production?&lt;/p&gt;
 
 &lt;p&gt;Will be happy to see any feedback or your learnings in the comments section below.&lt;/p&gt;
 
-&lt;p&gt;Thanks for reading.&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="infrastructure" /><category term="cloud" /><category term="gcp" /><category term="platform" /><category term="devops" /><category term="sre" /><category term="aws" /><summary type="html">Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/green-chameleon-s9CC2SKySJM-unsplash.jpg" /></entry><entry><title type="html">Giving back to the community</title><link href="http://localhost:4000/giving-back-to-community/" rel="alternate" type="text/html" title="Giving back to the community" /><published>2019-03-24T20:00:00+05:30</published><updated>2019-03-24T20:00:00+05:30</updated><id>http://localhost:4000/giving-back-to-community</id><content type="html" xml:base="http://localhost:4000/giving-back-to-community/">&lt;p&gt;This is for students/professionals who are looking to make a career in programming/computer-science/software-development and have questions like -&lt;/p&gt;
+&lt;p&gt;Thanks for reading.&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="infrastructure" /><category term="cloud" /><category term="gcp" /><category term="platform" /><category term="devops" /><category term="sre" /><category term="aws" /><summary type="html">Initial people, their habits and code have a dominant effect on the things that finally turnout for a startup and that too for a considerable amount of time.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/green-chameleon-s9CC2SKySJM-unsplash.jpg" /><media:content medium="image" url="http://localhost:4000/assets/green-chameleon-s9CC2SKySJM-unsplash.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Giving back to the community</title><link href="http://localhost:4000/giving-back-to-community/" rel="alternate" type="text/html" title="Giving back to the community" /><published>2019-03-24T20:00:00+05:30</published><updated>2019-03-24T20:00:00+05:30</updated><id>http://localhost:4000/giving-back-to-community</id><content type="html" xml:base="http://localhost:4000/giving-back-to-community/">&lt;p&gt;This is for students/professionals who are looking to make a career in programming/computer-science/software-development and have questions like -&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;How to start?&lt;/li&gt;
@@ -403,7 +483,7 @@ What versions of Postgres are we using in production?&lt;/p&gt;
 
 &lt;p&gt;If you like it, do give it a clap and share!&lt;/p&gt;
 
-&lt;p&gt;Thanks :)&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="distributed-systems" /><category term="redis" /><category term="twemproxy" /><category term="redis-cluster" /><summary type="html">Description</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/redis.png" /></entry><entry><title type="html">Interview Tips And Suggestions</title><link href="http://localhost:4000/interview-tips-and-suggestions/" rel="alternate" type="text/html" title="Interview Tips And Suggestions" /><published>2016-02-24T22:48:00+05:30</published><updated>2016-02-24T22:48:00+05:30</updated><id>http://localhost:4000/interview-tips-and-suggestions</id><content type="html" xml:base="http://localhost:4000/interview-tips-and-suggestions/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Thanks :)&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="distributed-systems" /><category term="redis" /><category term="twemproxy" /><category term="redis-cluster" /><summary type="html">Description</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/redis.png" /><media:content medium="image" url="http://localhost:4000/assets/redis.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Interview Tips And Suggestions</title><link href="http://localhost:4000/interview-tips-and-suggestions/" rel="alternate" type="text/html" title="Interview Tips And Suggestions" /><published>2016-02-24T22:48:00+05:30</published><updated>2016-02-24T22:48:00+05:30</updated><id>http://localhost:4000/interview-tips-and-suggestions</id><content type="html" xml:base="http://localhost:4000/interview-tips-and-suggestions/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;The following tips and suggestions are combination of my experience and different sources. This post includes all the relevant material that can help you in landing job oppurtunities and acing them.&lt;/p&gt;
 
@@ -504,7 +584,7 @@ One of the best way to overcome this is giving many mock interviews. Mock interv
 
 &lt;h5 id=&quot;note-there-can-be-other-ways-to-crack-interviews-too-the-above-post-is-the-summary-of-me-and-my-friends-experiences&quot;&gt;Note: There can be other ways to crack interviews too. The above post is the summary of me and my friends experiences.&lt;/h5&gt;
 &lt;center&gt;Keep Coding ✌&lt;/center&gt;
-&lt;center&gt;All the best!!&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="interviews" /><category term="computerscience" /><category term="programming" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/job.jpg" /></entry><entry><title type="html">1 Hack Per Month(2016)</title><link href="http://localhost:4000/1-hack-per-month/" rel="alternate" type="text/html" title="1 Hack Per Month(2016)" /><published>2016-01-11T22:00:00+05:30</published><updated>2016-01-11T22:00:00+05:30</updated><id>http://localhost:4000/1-hack-per-month</id><content type="html" xml:base="http://localhost:4000/1-hack-per-month/">&lt;p&gt;This is a list of my hacks to improve productivity and coding skills. Code everyday and make something useful.&lt;/p&gt;
+&lt;center&gt;All the best!!&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="interviews" /><category term="computerscience" /><category term="programming" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/job.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/job.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">1 Hack Per Month(2016)</title><link href="http://localhost:4000/1-hack-per-month/" rel="alternate" type="text/html" title="1 Hack Per Month(2016)" /><published>2016-01-11T22:00:00+05:30</published><updated>2016-01-11T22:00:00+05:30</updated><id>http://localhost:4000/1-hack-per-month</id><content type="html" xml:base="http://localhost:4000/1-hack-per-month/">&lt;p&gt;This is a list of my hacks to improve productivity and coding skills. Code everyday and make something useful.&lt;/p&gt;
 
 &lt;h2 id=&quot;january&quot;&gt;January&lt;/h2&gt;
 &lt;p&gt;File Organizer  - No more messy folders!&lt;/p&gt;
@@ -606,7 +686,7 @@ Working: &lt;img src=&quot;https://camo.githubusercontent.com/cd68425155dbb3cd37
 &lt;hr /&gt;
 &lt;center&gt;
 Will update the future hacks soon! Office time!
-&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="hack" /><category term="productivity" /><summary type="html">This is a list of my hacks to improve productivity and coding skills. Code everyday and make something useful.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/bulb.jpeg" /></entry><entry><title type="html">Divide And Conquer</title><link href="http://localhost:4000/divide-and-conquer/" rel="alternate" type="text/html" title="Divide And Conquer" /><published>2016-01-06T17:00:00+05:30</published><updated>2016-01-06T17:00:00+05:30</updated><id>http://localhost:4000/divide-and-conquer</id><content type="html" xml:base="http://localhost:4000/divide-and-conquer/">&lt;!-- ![Screenshot](/assets/park-easy-screenshot.png)
+&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="hack" /><category term="productivity" /><summary type="html">This is a list of my hacks to improve productivity and coding skills. Code everyday and make something useful.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/bulb.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/bulb.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Divide And Conquer</title><link href="http://localhost:4000/divide-and-conquer/" rel="alternate" type="text/html" title="Divide And Conquer" /><published>2016-01-06T17:00:00+05:30</published><updated>2016-01-06T17:00:00+05:30</updated><id>http://localhost:4000/divide-and-conquer</id><content type="html" xml:base="http://localhost:4000/divide-and-conquer/">&lt;!-- ![Screenshot](/assets/park-easy-screenshot.png)
  --&gt;
 &lt;p&gt;In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:&lt;/p&gt;
 
@@ -778,25 +858,4 @@ The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2,
 
 &lt;p&gt;This blog explains this thoroughly: &lt;a href=&quot;https://52.20.106.37/count-of-range-sum/&quot;&gt;Count of Range Sum&lt;/a&gt;&lt;/p&gt;
 
-&lt;center&gt;Suggestions/Links are welcome.&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="algorithms" /><category term="datastructures" /><category term="competitivecoding" /><summary type="html">In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:</summary></entry><entry><title type="html">ParkEasy</title><link href="http://localhost:4000/park-easy/" rel="alternate" type="text/html" title="ParkEasy" /><published>2015-08-01T22:10:00+05:30</published><updated>2015-08-01T22:10:00+05:30</updated><id>http://localhost:4000/park-easy</id><content type="html" xml:base="http://localhost:4000/park-easy/">&lt;p&gt;&lt;img src=&quot;/assets/park-easy-screenshot.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Digitization of parking system to solve current parking crisis in India by providing facilities such as live parking status, variable rates, pre-booking feature and cashless payments. Working example - &lt;a href=&quot;https://vast-wave-6400.herokuapp.com&quot;&gt;Demo&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;What has inside?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Gulp&lt;/li&gt;
-  &lt;li&gt;BrowserSync&lt;/li&gt;
-  &lt;li&gt;Stylus&lt;/li&gt;
-  &lt;li&gt;SVG&lt;/li&gt;
-  &lt;li&gt;Travis&lt;/li&gt;
-  &lt;li&gt;No JS&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsergiokopplin.github.io%2Findigo%2F&quot;&gt;98/100&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://sergiokopplin.github.io/indigo/&quot;&gt;Check it out&lt;/a&gt; here.
-If you need some help, just &lt;a href=&quot;https://github.com/sergiokopplin/indigo/issues&quot;&gt;tell me&lt;/a&gt;.&lt;/p&gt;</content><author><name>adityachowdhry</name></author><category term="project" /><category term="parking-problems" /><category term="digitization" /><category term="ruby-on-rails" /><category term="bootstrap" /><category term="android" /><summary type="html"></summary></entry></feed>
+&lt;center&gt;Suggestions/Links are welcome.&lt;/center&gt;</content><author><name>adityachowdhry</name></author><category term="blog" /><category term="programming" /><category term="algorithms" /><category term="datastructures" /><category term="competitivecoding" /><summary type="html">In divide and conquer we solve a problem recursively, applying three steps at each level of recursion:</summary></entry></feed>
