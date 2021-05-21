@@ -70,9 +70,9 @@ Sad news, You can only configure the maximum number of Pods per node at cluster 
 
 <center><i>cries in a corner</i></center>
 
-This incident brings our attention to three configurations that are very crucial while creating a cluster
-1. Node IP address range
-2. Pod IP address range
+This incident brings our attention to three configurations that are very crucial while creating a *VPC-native* cluster
+1. Node IP address range (taken from subnet primary IP range)
+2. Pod IP address range (taken from subnet secondary IP range)
 3. Max pods per node
  
 Now, coming to the why part. Let us try to work this through an example to understand the calculation of the number of nodes
