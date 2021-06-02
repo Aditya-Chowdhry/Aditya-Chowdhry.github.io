@@ -42,6 +42,7 @@ IMO, Good guidance at the right time can do wonders. Getting guidance shouldn't 
 
 ## How?
 
-Fill up this form and then we can have a call. I'll probably try to connect to everyone who will fill up the form but it may take up some time as it is hard to take time off with a full-time job. So be patient :) 
+Send me an email at adityachowdhry09@gmail.com
+For faster reply it would be helpful if you use "Giving back to the community" as subject, introduce yourself and just describe the query.
 
-Form: https://adityachowdhry09.typeform.com/to/U6UPMp
+
